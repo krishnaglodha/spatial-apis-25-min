@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<base target="_top">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<title>Quick Start - Leaflet</title>
+	
+	<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+
+	<style>
+		html, body {
+			height: 100%;
+			margin: 0;
+		}
+		.leaflet-container {
+			height: 400px;
+			width: 600px;
+			max-width: 100%;
+			max-height: 100%;
+		}
+	</style>
+
+	
+</head>
+<body>
+
+
+
+<div id="map" style="width: 100%; height: 90vh;"></div>
+<script>
+
+	const map = L.map('map').setView([51.505, -0.09], 2);
+
+	const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+		maxZoom: 19,
+		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+	}).addTo(map);
+
+	// // Uncomment following to see all data 
+    // {% for city in allcities %}
+    // console.log('{{city.geometry.x}}')
+    // long = '{{city.geometry.x}}'
+    // lat = '{{city.geometry.y}}'
+    // name = '{{city.name}}'
+    //  L.marker([lat, long]).addTo(map)
+	// 	.bindPopup(`<b>Name</b><br />${name}.`)
+    // {% endfor %}
+	
+	// // Uncomment following to see data based on bbox
+	// fetch('http://127.0.0.1:8000/api/citiesbbox/?in_bbox=57.926960,10.734658,98.993855,30.740508')
+	// .then(res => res.json())
+	// .then(data => {
+	// 	L.geoJSON(data).addTo(map);
+
+	// })
+	// // Uncomment following to see data based on TMS
+	// fetch('http://127.0.0.1:8000/api/citiestms/?tile=3/7/4')
+	// .then(res => res.json())
+	// .then(data => {
+	// 	L.geoJSON(data).addTo(map);
+
+	// })
+
+
+</script>
+
+
+
+</body>
+</html>
